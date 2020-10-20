@@ -18,26 +18,27 @@ bias = ir.inputneuron(1)
 
 weights = []
 for i in range(len(inputs)+1):
-    weights.append(random.uniform(0, 10.0))
+    weights.append(random.uniform(-1, 1))
 print(weights)
 
 norGate = nr.sigmoidneuron(inputs, weights, bias)
 
 trainingset = [
-    ([0, 0, 0], 0),
+    ([0, 0, 0], 1),
     ([0, 0, 1], 1),
     ([0, 1, 0], 1),
     ([0, 1, 1], 1),
     ([1, 0, 0], 1),
     ([1, 0, 1], 1),
     ([1, 1, 0], 1),
-    ([1, 1, 1], 1)
+    ([1, 1, 1], 0)
 ]
+
 
 oldweights = []
 counter = 0
 while True:
-    delta = [0, 0, 0, 0]
+    delta = [0]*(len(trainingset[0][0])+1)
     oldweights = copy.copy(norGate.weights)
     for z in range(len(trainingset)):
 
