@@ -64,14 +64,7 @@ for _ in range(100000):
     if max(delta) < 10**-9:
         break
 
-# prediction = []
-# tmp = 0
-# for i in range(len(trainingset)):
-#     AND.updateInputs()
-#     tmp = AND.getOutput()
-#     print(tmp)
-#     tmp = (tmp >= 0.5) * 1.0
-#     prediction.append(tmp)
+
 for i in range(len(outputs)):
     outputs[i][0] = (outputs[i][0] >= 0.5) * 1.0
 print(outputs)
